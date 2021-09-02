@@ -1,0 +1,19 @@
+{
+  "name": "com.thinkted.glamodel",
+  "version": "1.0.1",
+  "displayName": "GLAModel",
+  "description": "This is an example package",
+  "unity": "2018.1",
+  "unityRelease": "0b5",
+  "keywords": [
+    "keyword1",
+    "keyword2",
+    "keyword3"
+  ],
+  "author": {
+    "name": "Douglas Silva",
+    "email": "dsm.lic17@uea.edu.br",
+    "url": "http://thinktedlab.org/"
+  },
+  "type": "tool"
+}
