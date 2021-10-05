@@ -7,23 +7,25 @@ using UnityEngine.Networking;
 
 public class CommonCode
 {
-    public static IEnumerator Put(string url, string logindataJsonString)
+    public static string API_HOST = "https://api-backend-gla.herokuapp.com/";
+    public CommonCode() { }
+    public static IEnumerator Post(string url, string json)
     {
-        var request = new UnityWebRequest(url, "PUT");
-        byte[] bodyRaw = Encoding.UTF8.GetBytes(logindataJsonString);
+        var request = new UnityWebRequest(url, "POST");
+        byte[] bodyRaw = Encoding.UTF8.GetBytes(json);
         request.uploadHandler = (UploadHandler)new UploadHandlerRaw(bodyRaw);
         request.downloadHandler = (DownloadHandler)new DownloadHandlerBuffer();
         request.SetRequestHeader("Content-Type", "application/json");
         yield return request.SendWebRequest();
 
-        if (request.error != null)
+        if (request.result != UnityWebRequest.Result.Success)
         {
-            Debug.Log("Erro: " + request.error);
+            throw new Exception(request.downloadHandler.text);
         }
         else
         {
-            Debug.Log("All OK");
-            Debug.Log("Status Code: " + request.responseCode);
+            Debug.Log("Dados enviados com sucesso!");
+            Debug.Log("Pode acessa - los através da rota: " + url);
         }
 
     }
@@ -42,9 +44,9 @@ public class CommonCode
                 await Task.Yield();
 
             if (www.result != UnityWebRequest.Result.Success)
-                Debug.LogError($"Failed: {www.error}");
+                throw new Exception(www.downloadHandler.text);
 
-            if (www.downloadHandler.text.Contains("null") || www.downloadHandler.text.Contains("Invalid Game")){
+            if (www.downloadHandler.text.Contains("null")){
                 return null;
             }
 
