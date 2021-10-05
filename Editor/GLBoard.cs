@@ -84,6 +84,7 @@ public class GLBoard
     /// Atribui os dados de perfil do usuario
     /// </summary>
     /// <param name="name"></param>
+    /// <exception cref="Exception">Retorna um erro caso a data de nascimento esteja em um formato não DateTime</exception>
     /// <param name="day_birthday"></param>
     /// <param name="gender"></param>
     public void SetPlayerData(string name, string day_birthday, GENDER gender = GENDER.OUTROS)
@@ -178,7 +179,7 @@ public class GLBoard
     /// Define a quantidade de tempo que o jogador jogou
     /// </summary>
     /// <param name="quant"></param>
-    public void SetPlayerMinutesGames(int quant)
+    public void SetPlayerMinutesGame(int quant)
     {
         this.data.game_data.player_minutes_in_game = quant;
     }
@@ -187,7 +188,7 @@ public class GLBoard
     /// Retorna a quantidade de tempo que o jogador jogou
     /// </summary>
     /// <returns>Retorna a quantidade de tempo que o jogador jogou</returns>
-    public int GetPlayerHoursGames()
+    public int GetPlayerMinutesGame()
     {
         return this.data.game_data.player_minutes_in_game;
     }
