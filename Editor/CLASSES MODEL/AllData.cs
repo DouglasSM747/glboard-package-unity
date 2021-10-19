@@ -30,6 +30,7 @@ public class GameData
     public GameData() { }
     public string custom_report;
     public int number_phases;
+    public string date_last_login;
     public List<Phase> phases = new List<Phase>();
     public int phases_unlocked;
     public int player_minutes_in_game;

@@ -32,6 +32,7 @@ public class CommonCode
 
     public static async Task<string> Get(string url)
     {
+        Debug.Log(url);
         try
         {
             using var www = UnityWebRequest.Get(url);

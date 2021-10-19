@@ -149,6 +149,25 @@ public class GLBoard
     }
 
     /// <summary>
+    /// Metodo para definir o horario do ultimo login do jogador
+    /// </summary>
+    /// <param name="dateTime">Horario do ultimo login</param>
+    public void SetLastLogin(DateTime dateTime)
+    {
+        this.data.game_data.date_last_login = dateTime.ToString();
+    }
+
+    /// <summary>
+    /// Retorna o horario do ultimo login do jogador
+    /// </summary>
+    /// <returns>Retorna um numero de fases do jogo</returns>
+    public DateTime GetLastLogin()
+    {
+        return DateTime.Parse(this.data.game_data.date_last_login);
+    }
+
+
+    /// <summary>
     /// Define o report customizado relacionado ao usuario
     /// </summary>
     /// <param name="customReport"></param>
