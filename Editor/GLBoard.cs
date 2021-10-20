@@ -343,8 +343,8 @@ public class GLBoard
             section.finalized_challenges = finalized_challenges;
         }
 
-        section.path_player ??= path_player;
-        section.route_image_b64 ??= route_image_b64;
+        section.path_player = path_player ?? null;
+        section.route_image_b64 = route_image_b64 ?? null;
 
         if (!IsValidPhase(phase_id))
         {

@@ -35,23 +35,27 @@ public class CommonCode
         Debug.Log(url);
         try
         {
-            using var www = UnityWebRequest.Get(url);
+            using (var www = UnityWebRequest.Get(url))
+            {
 
-            www.SetRequestHeader("Content-Type", "application/json");
+                www.SetRequestHeader("Content-Type", "application/json");
 
-            var operation = www.SendWebRequest();
+                var operation = www.SendWebRequest();
 
-            while (!operation.isDone)
-                await Task.Yield();
+                while (!operation.isDone)
+                    await Task.Yield();
 
-            if (www.result != UnityWebRequest.Result.Success)
-                throw new Exception(www.downloadHandler.text);
+                if (www.result != UnityWebRequest.Result.Success)
+                    throw new Exception(www.downloadHandler.text);
 
-            if (www.downloadHandler.text.Contains("null")){
-                return null;
+                if (www.downloadHandler.text.Contains("null"))
+                {
+                    return null;
+                }
+
+                return www.downloadHandler.text;
             }
 
-            return www.downloadHandler.text;
         }
         catch (Exception ex)
         {
