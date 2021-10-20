@@ -18,7 +18,7 @@ public class CommonCode
         request.SetRequestHeader("Content-Type", "application/json");
         yield return request.SendWebRequest();
 
-        if (request.result != UnityWebRequest.Result.Success)
+        if (request.isHttpError)
         {
             throw new Exception(request.downloadHandler.text);
         }
@@ -45,7 +45,7 @@ public class CommonCode
                 while (!operation.isDone)
                     await Task.Yield();
 
-                if (www.result != UnityWebRequest.Result.Success)
+                if (www.isHttpError)
                     throw new Exception(www.downloadHandler.text);
 
                 if (www.downloadHandler.text.Contains("null"))
