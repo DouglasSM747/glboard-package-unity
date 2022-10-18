@@ -11,6 +11,7 @@ public class CommonCode
     public CommonCode() { }
     public static IEnumerator Post(string url, string json)
     {
+        Debug.Log(url);
         var request = new UnityWebRequest(url, "POST");
         byte[] bodyRaw = Encoding.UTF8.GetBytes(json);
         request.uploadHandler = (UploadHandler)new UploadHandlerRaw(bodyRaw);
@@ -32,7 +33,6 @@ public class CommonCode
 
     public static async Task<string> Get(string url)
     {
-        Debug.Log(url);
         try
         {
             using (var www = UnityWebRequest.Get(url))
