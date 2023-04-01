@@ -7,7 +7,7 @@ using UnityEngine.Networking;
 
 public class CommonCode
 {
-    public static string API_HOST = "https://api-backend-gla.herokuapp.com/";
+    public static string API_HOST = "https://glboardapi.azurewebsites.net/";
     public CommonCode() { }
     public static IEnumerator Post(string url, string json)
     {
@@ -25,7 +25,7 @@ public class CommonCode
         else
         {
             Debug.Log("Dados enviados com sucesso!");
-            Debug.Log("Pode acessa - los através da rota: " + url);
+            Debug.Log("Pode acessa - los atravï¿½s da rota: " + url);
         }
 
     }
