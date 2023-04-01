@@ -1,6 +1,6 @@
 {
   "name": "com.thinkted.glboard_unity",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "displayName": "GLBoard Package",
   "description": "GLBoard-Package e um pacote Unity que permite aos desenvolvedores de jogos educacionais enviarem seus dados no formato GLBoard Modelo de Dados para a GLBoard-API de forma rapida e pratica. Logo esta e uma ferramenta de conexao.\n\n[API REFERENCE](https://glboard.bit.ai/rdc/4PoLc7VQXrpZtJLd)",
   "unity": "2018.1",
