@@ -7,7 +7,8 @@ using UnityEngine.Networking;
 
 public class CommonCode
 {
-    public static string API_HOST = "https://glboardapi.onrender.com/";
+    public static string API_HOST = "http://179.191.232.154:5000/";
+
     public CommonCode() { }
     public static IEnumerator Post(string url, string json)
     {
